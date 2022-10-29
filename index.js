@@ -47,36 +47,43 @@ function scoreColorChanger(){
         document.getElementById("guest-score").style.color = "#10B981"
     }
 }
+
 function resetScore(){
     homeScore = 0;
     guestScore = 0;
     homeEl.textContent = 0;
     guestEl.textContent = 0;
     scoreColorChanger();
-    document.getElementById('timer').innerHTML =
-  05 + ":" + 01;
+    document.getElementById('timer').textContent = 05 + ":" + '00';
     startTimer();
+    firstStart = 1;
 }
+
+document.getElementById('timer').textContent = 05 + ":" + '00';
+
 var flag = false;
+let firstStart=1;
+
 function startStopTimer() {
-    if(!flag){
-        flag = !flag;
-        return flag;
-    }
-    else {
-        flag = false;
+    if(firstStart == 1)
+    {
         startTimer();
+        firstStart++;
+    }
+    else{
+        if(!flag){
+            flag = !flag;
+            return flag;
+        }
+        else {
+            flag = false;
+            startTimer();
+        }
     }
 }
-
-
-document.getElementById('timer').innerHTML =
-  05 + ":" + 01;
-  
-startTimer();
 
 function startTimer() {
-  var presentTime = document.getElementById('timer').innerHTML;
+  var presentTime = document.getElementById('timer').textContent;
   var timeArray = presentTime.split(/[:]+/);
   var m = timeArray[0];
   var s = checkSecond((timeArray[1] - 1));
@@ -84,8 +91,7 @@ function startTimer() {
   if(m<0 || flag){
     return
   }
-  document.getElementById('timer').innerHTML =
-    m + ":" + s;
+  document.getElementById('timer').textContent = m + ":" + s;
   setTimeout(startTimer, 1005);
   
 }
