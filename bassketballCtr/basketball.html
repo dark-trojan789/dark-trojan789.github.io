@@ -1,0 +1,47 @@
+<html>
+    <head>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.css">
+        <link rel="stylesheet" href="basketball.css">
+    </head>
+    <body>
+        <div id="outer">
+            <div id="timer-body">
+                <span id="timer"></span>
+            </div>
+        </div>
+        <div class="container">
+            <div>
+                <h3>HOME</h3>
+                <div class = "score-board">
+                    <p id="home-score">0</p>
+                </div>
+                <div class="increment-buttons">
+                    <button class="score-buttons" id="home-plus-1" onclick="homePlus1()">+1</button>
+                    <button class="score-buttons" id="home-plus-3" onclick="homePlus3()">+3</button>
+                    <button class="score-buttons" id="home-plus-5" onclick="homePlus5()">+5</button>
+                </div>
+                
+            </div>
+            <div>
+                <h3>AWAY</h3>
+                <div class = "score-board">
+                <p id="guest-score">0</p>
+                </div>
+                <div class="increment-buttons">
+                    <button class="score-buttons" id="guest-plus-1" onclick="guestPlus1()">+1</button>
+                    <button class="score-buttons" id="guest-plus-3" onclick="guestPlus3()">+3</button>
+                    <button class="score-buttons" id="guest-plus-5" onclick="guestPlus5()">+5</button>
+                </div>
+            </div>
+        </div>
+        <div id="outer">
+            <div id="new-game">
+            <button style="padding: 10px;" onclick="resetScore()">New Game</button>
+            </div>
+        </div>
+        <div id="outer">
+            <button style="padding: 10px;" onclick="startStopTimer()">Start/Stop Timer</button>
+        </div>
+        <script src="basketball.js"></script>
+    </body>
+</html>
