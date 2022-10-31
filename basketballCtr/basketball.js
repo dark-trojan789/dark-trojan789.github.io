@@ -2,6 +2,9 @@ let homeEl = document.getElementById("home-score");
 let guestEl = document.getElementById("guest-score");
 let homeScore = 0;
 let guestScore = 0;
+var flag = false;
+let firstStart=1;
+
 scoreColorChanger()
 function homePlus1() {
     homeScore += 1;
@@ -55,20 +58,19 @@ function resetScore(){
     guestEl.textContent = 0;
     scoreColorChanger();
     document.getElementById('timer').textContent = 05 + ":" + '00';
-    startTimer();
-    firstStart = 1;
+    flag = false;
+    if (firstStart!=1) startStopTimer();
+    firstStart =1;
 }
 
 document.getElementById('timer').textContent = 05 + ":" + '00';
-
-var flag = false;
-let firstStart=1;
 
 function startStopTimer() {
     if(firstStart == 1)
     {
         startTimer();
         firstStart++;
+        return
     }
     else{
         if(!flag){
